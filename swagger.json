@@ -1,0 +1,80 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "version": "1.0.0",
+        "description": "API for Ecommerce application",
+        "title": "Ecommerce API"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:3200"
+        }
+    ],
+    "components": {
+        "securitySchemes": {
+            "JWT": {
+                "type": "apiKey",
+                "name": "Authorization",
+                "in": "header"
+            }
+        }
+    },
+    "paths": {
+        "/api/products": {
+            "get": {
+                "tags": [
+                    "Products"
+                ],
+                "summary": "Get Product",
+                "description": "User will get all Product",
+                "security": [
+                    {
+                        "JWT": {}
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "401": {
+                        "description": "Un Authorized Acess"
+                    }
+                }
+            }
+        },
+        "/api/users/signin": {
+            "post": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "LOGIN",
+                "description": "User login and receive token",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "404": {
+                        "description": "User Not Found"
+                    }
+                }
+            }
+        }
+    }
+}

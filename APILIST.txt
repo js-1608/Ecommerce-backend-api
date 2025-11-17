@@ -1,0 +1,12 @@
+ProductController
+Get Products - Done.
+Add a product-done
+Get one product-done
+Rate product.
+Filter Product-done
+
+usercontroller
+signup-email,name ,password,type of user 
+signIN-email,password
+
+
